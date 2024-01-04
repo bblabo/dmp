@@ -23,6 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  
 
   <title>マイリスト</title>
   
@@ -35,7 +36,15 @@
       justify-content: center;
       min-height: 100vh;
       margin: 0;
+            opacity: 0;
+            transform: translateY(20px); /* Initial position below */
+            transition: opacity 0.5s ease, transform 0.5s ease;
     }
+
+            body.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
     /* Other styles remain the same */
 
@@ -56,6 +65,11 @@
 }
   </style>
 
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('loaded');
+        });
+    </script>
 
 </head>
 
