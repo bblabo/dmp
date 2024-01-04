@@ -108,6 +108,28 @@ body {
             text-decoration: none;
         }
     </style>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Remove the 'loaded' class from the body
+    document.body.classList.remove('loaded');
+
+    const taskList = document.getElementById('taskList');
+    const addTaskButton = document.getElementById('addTaskButton');
+    const sortDateButton = document.getElementById('sortDateButton');
+    const sortTimeButton = document.getElementById('sortTimeButton');
+
+    // ... Your existing code ...
+
+    // Add the 'loaded' class after a short delay to trigger the animation
+    setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500);
+
+    // Your existing code ...
+  });
+</script>
+  
 </head>
 
 <body>
