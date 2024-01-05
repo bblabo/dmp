@@ -82,6 +82,20 @@
       document.body.classList.add('loaded');
     }, 2000);
 
+        document.addEventListener('DOMContentLoaded', function () {
+      // ...
+
+      // Function to check for a previously logged-in user
+      function checkLoggedInUser() {
+        const storedUser = localStorage.getItem('loggedInUser');
+        if (storedUser) {
+          loggedInUser = storedUser;
+          window.location.href = `${loggedInUser}.html`;
+        }
+      }
+
+      // Call the function to check for a previously logged-in user
+      checkLoggedInUser();
     // Your existing code ...
   });
 </script>
@@ -90,6 +104,12 @@
 
 <body>
   <div id="loginForm">
+    <input type="text" id="username" placeholder="お名前フルネーム">
+    <input type="password" id="password" placeholder="パスワード">
+    <button id="loginButton">ログイン</button>
+  </div>
+
+    <div id="loginForm">
     <input type="text" id="username" placeholder="お名前フルネーム">
     <input type="password" id="password" placeholder="パスワード">
     <button id="loginButton">ログイン</button>
@@ -164,6 +184,8 @@
     // Event listeners remain the same
 
   });
+
+    document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 </body>
