@@ -4,29 +4,15 @@
 <head>
   <!-- Favicon -->
   <link rel="icon" href="https://live.staticflickr.com/65535/53436966251_1e4c7d6e1b_m.jpg" type="image/png">
-
-  <!-- For older versions of IE -->
   <link rel="shortcut icon" href="https://live.staticflickr.com/65535/53436966251_1e4c7d6e1b_m.jpg" type="image/png">
-
-  <!-- Standard iPhone Retina Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="https://live.staticflickr.com/65535/53436966251_1e4c7d6e1b_m.jpg">
-
-  <!-- Standard iPhone Non-Retina Icon -->
   <link rel="apple-touch-icon" sizes="57x57" href="https://live.staticflickr.com/65535/53436966251_1e4c7d6e1b_m.jpg">
-
-  <!-- iPad Retina Icon -->
   <link rel="apple-touch-icon" sizes="152x152" href="https://live.staticflickr.com/65535/53436966251_1e4c7d6e1b_m.jpg">
-
-  <!-- iPad Non-Retina Icon -->
   <link rel="apple-touch-icon" sizes="76x76" href="https://live.staticflickr.com/65535/53436966251_1e4c7d6e1b_m.jpg">
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-
   <title>マイリスト</title>
-  
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -37,15 +23,15 @@
       background-color: #fceaef;
       min-height: 100vh;
       margin: 0;
-            opacity: 1;
-            transform: translateY(50px); /* Initial position below */
-            transition: opacity 2.0s ease, transform 2.0s ease;
+      opacity: 1;
+      transform: translateY(50px);
+      transition: opacity 2.0s ease, transform 2.0s ease;
     }
 
-            body.loaded {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    body.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* Other styles remain the same */
 
@@ -53,53 +39,49 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: 25px; /* Adjust the font size according to your preference */
+      font-size: 25px;
     }
 
     #loginForm input {
       margin-bottom: 10px;
-      font-size: 25px; /* Adjust the font size according to your preference */
+      font-size: 25px;
       background-color: #ffffff;
     }
 
-#loginButton {
-  font-size: 25px; /* You can adjust the value to your preference */
-  background-color: #ffffff;
-  cursor: pointer; /* Add this line to make the cursor change on hover */
-}
+    #loginButton {
+      font-size: 25px;
+      background-color: #ffffff;
+      cursor: pointer;
+    }
 
-                /* Style for the logo */
-        .logo-container {
-            text-align: center;
-            padding: 20px; /* Adjust the padding as needed */
-        }
+    /* Style for the logo */
+    .logo-container {
+      text-align: center;
+      padding: 20px;
+    }
 
-        .logo {
-            max-width: 100%; /* Make sure the logo doesn't exceed its original size */
-            height: auto; /* Maintain the aspect ratio */
-        }
-    
+    .logo {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Remove the 'loaded' class from the body
-    document.body.classList.remove('loaded');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Remove the 'loaded' class from the body
+      document.body.classList.remove('loaded');
 
-    const taskList = document.getElementById('taskList');
-    const addTaskButton = document.getElementById('addTaskButton');
-    const sortDateButton = document.getElementById('sortDateButton');
-    const sortTimeButton = document.getElementById('sortTimeButton');
+      const taskList = document.getElementById('taskList');
+      const addTaskButton = document.getElementById('addTaskButton');
+      const sortDateButton = document.getElementById('sortDateButton');
+      const sortTimeButton = document.getElementById('sortTimeButton');
 
-    // ... Your existing code ...
+      // ... Your existing code ...
 
-    // Add the 'loaded' class after a short delay to trigger the animation
-    setTimeout(function () {
-      document.body.classList.add('loaded');
-    }, 2000);
-
-        document.addEventListener('DOMContentLoaded', function () {
-      // ...
+      // Add the 'loaded' class after a short delay to trigger the animation
+      setTimeout(function () {
+        document.body.classList.add('loaded');
+      }, 2000);
 
       // Function to check for a previously logged-in user
       function checkLoggedInUser() {
@@ -112,19 +94,17 @@
 
       // Call the function to check for a previously logged-in user
       checkLoggedInUser();
-    // Your existing code ...
-  });
-</script>
-
+    });
+  </script>
 </head>
 
 <body>
-    <!-- Logo at the top, centered -->
-    <div class="logo-container">
-        <img class="logo" src="https://live.staticflickr.com/65535/53440041205_f981e53f9a_m.jpg" alt="Your Logo">
-    </div>
-  
-    <div id="loginForm">
+  <!-- Logo at the top, centered -->
+  <div class="logo-container">
+    <img class="logo" src="https://live.staticflickr.com/65535/53440041205_f981e53f9a_m.jpg" alt="Your Logo">
+  </div>
+
+  <div id="loginForm">
     <input type="text" id="username" placeholder="お名前フルネーム">
     <input type="password" id="password" placeholder="パスワード">
     <button id="loginButton">ログイン</button>
@@ -133,75 +113,65 @@
   <!-- Remaining HTML code remains the same -->
 
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.getElementById('loginForm');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const taskElements = document.getElementById('taskElements');
+    document.addEventListener('DOMContentLoaded', function () {
+      const loginForm = document.getElementById('loginForm');
+      const usernameInput = document.getElementById('username');
+      const passwordInput = document.getElementById('password');
+      const taskElements = document.getElementById('taskElements');
 
-    // Predefined usernames and passwords
-    const credentials = {
-      '宮竹さゆり': '1111952',
-      '平山かおる': '2151399',
-      '古谷由理': '2810921',
-      '田中あゆみ': '2710607',
-      '佐藤栄子': '2705217',
-      '西川真美': '2738756',
-      '深沢郁恵': '2721774',
-      '伊藤順子': '2755001',
-      '鈴木清美': '2816258',
-      '河崎昌美': '2820373',
-      '山内愛': '2818525',
-      '平野緑': '2800534',
-      '小俣さちこ': '2756974',
-      'names': '1'
-    };
+      // Predefined usernames and passwords
+      const credentials = {
+        '宮竹さゆり': '1111952',
+        '平山かおる': '2151399',
+        '古谷由理': '2810921',
+        '田中あゆみ': '2710607',
+        '佐藤栄子': '2705217',
+        '西川真美': '2738756',
+        '深沢郁恵': '2721774',
+        '伊藤順子': '2755001',
+        '鈴木清美': '2816258',
+        '河崎昌美': '2820373',
+        '山内愛': '2818525',
+        '平野緑': '2800534',
+        '小俣さちこ': '2756974',
+        'names': '1'
+      };
 
-    let loggedInUser = null;
+      let loggedInUser = null;
 
-    // Login button click event listener
-    loginButton.addEventListener('click', function () {
-      const enteredUsername = usernameInput.value.trim();
-      const enteredPassword = passwordInput.value.trim();
+      // Login button click event listener
+      loginButton.addEventListener('click', function () {
+        const enteredUsername = usernameInput.value.trim();
+        const enteredPassword = passwordInput.value.trim();
 
-      if (!enteredUsername || !enteredPassword) {
-        alert('Please enter both username and password.');
-        return;
-      }
+        if (!enteredUsername || !enteredPassword) {
+          alert('Please enter both username and password.');
+          return;
+        }
 
-      // Check if the entered username is in the predefined list
-      if (credentials.hasOwnProperty(enteredUsername) && credentials[enteredUsername] === enteredPassword) {
-        // Save the logged-in user to localStorage
-        localStorage.setItem('loggedInUser', enteredUsername);
-        loggedInUser = enteredUsername;
+        // Check if the entered username is in the predefined list
+        if (credentials.hasOwnProperty(enteredUsername) && credentials[enteredUsername] === enteredPassword) {
+          // Save the logged-in user to localStorage
+          localStorage.setItem('loggedInUser', enteredUsername);
+          loggedInUser = enteredUsername;
 
-        // Redirect to the user's task page
-        window.location.href = `${loggedInUser}.html`;
-      } else {
-        alert('Invalid username or password. Please enter valid credentials.');
-      }
+          // Redirect to the user's task page
+          window.location.href = `${loggedInUser}.html`;
+        } else {
+          alert('Invalid username or password. Please enter valid credentials.');
+        }
+      });
+
+      // Function to create task element remains the same
+      // Function to add task remains the same with minor modifications
+      // Function to delete task remains the same
+      // Function to update total tasks remains the same
+      // Function to sort tasks by deadline remains the same
+      // Function to save tasks to storage remains the same
+      // Function to remove from storage remains the same
+      // Event listeners remain the same
     });
-
-    // Function to create task element remains the same
-
-    // Function to add task remains the same with minor modifications
-
-    // Function to delete task remains the same
-
-    // Function to update total tasks remains the same
-
-    // Function to sort tasks by deadline remains the same
-
-    // Function to save tasks to storage remains the same
-
-    // Function to remove from storage remains the same
-
-    // Event listeners remain the same
-
-  });
-
-</script>
-
+  </script>
 </body>
 
 </html>
