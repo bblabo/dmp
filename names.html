@@ -464,9 +464,6 @@ document.getElementById('shareButton').addEventListener('click', shareTasks);
 
     
   </script>
-
-    <!-- Logout button -->
-  <button id="logoutButton">ログアウト</button>
   
     <footer>
     <p>© BB・ラボ All rights reserved.</p>
@@ -474,21 +471,6 @@ document.getElementById('shareButton').addEventListener('click', shareTasks);
     <p><a href="mailto:bblabo.cs@gmail.com">お問い合わせ</a></p>
 
   </footer>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const logoutButton = document.getElementById('logoutButton');
-
-      // Logout button click event listener
-      logoutButton.addEventListener('click', function () {
-        // Clear the logged-in user information
-        localStorage.removeItem('loggedInUser');
-
-        // Redirect to the login page
-        window.location.href = 'index.html';
-      });
-    });
-  </script>
   
 </body>
 
