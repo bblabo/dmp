@@ -462,11 +462,15 @@ document.getElementById('shareButton').addEventListener('click', shareTasks);
       updateTotalTasks();
     });
 
-          // Logout button click event listener
+    document.addEventListener('DOMContentLoaded', function () {
+      const logoutButton = document.getElementById('logoutButton');
+
+      // Logout button click event listener
       logoutButton.addEventListener('click', function () {
-        // Clear the logged-in state
+        // Clear the logged-in user information
         localStorage.removeItem('loggedInUser');
-        // Redirect to index.html after logout
+
+        // Redirect to the login page
         window.location.href = 'index.html';
       });
     
