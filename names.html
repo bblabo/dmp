@@ -25,7 +25,29 @@
 
   <!-- Include the email.js library -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  
+
+  <script>
+    // Initialize email.js with your credentials
+    emailjs.init("user_your_emailjs_user_id");
+
+    function sendEmail(title, deadline, comment, action) {
+      // Prepare the email parameters
+      var emailParams = {
+        to_email: "bblabo.cs@gmail.com",
+        subject: `Task ${action === 'add' ? 'Added' : 'Deleted'}`,
+        body: `Action: ${action}\nTitle: ${title}\nDeadline: ${deadline}\nComment: ${comment}`
+      };
+
+      // Send the email
+      emailjs.send("default_service", "template_id", emailParams)
+        .then(function (response) {
+          console.log("Email sent:", response);
+        }, function (error) {
+          console.error("Error sending email:", error);
+        });
+    }
+  </script>
+    
   <title>名簿</title>
 
   <style>
@@ -364,13 +386,14 @@
         document.getElementById('newTaskTitle').value = '';
         document.getElementById('newTaskDeadline').value = '';
         document.getElementById('newTaskComment').value = '';
-
+        sendEmail(newTaskTitle, newTaskDeadline, newTaskComment, 'add');
         updateTotalTasks();
       }
 
       function deleteTask(listItem, title) {
         listItem.remove();
         removeFromStorage(title);
+        sendEmail(title, /* additional task details */, 'delete');
         updateTotalTasks();
       }
 
