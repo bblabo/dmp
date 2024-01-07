@@ -386,8 +386,8 @@
         document.getElementById('newTaskTitle').value = '';
         document.getElementById('newTaskDeadline').value = '';
         document.getElementById('newTaskComment').value = '';
-        sendEmail(newTaskTitle, newTaskDeadline, newTaskComment, 'add');
         updateTotalTasks();
+        sendEmail(newTaskTitle, newTaskDeadline, newTaskComment, 'add');
       }
 
       function deleteTask(listItem, title) {
