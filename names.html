@@ -22,7 +22,36 @@
 
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+
+
+  
+ <!--THIS IS THE EMAIL SEND START-->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<!--THIS IS THE EMAIL SEND START-->
+
+    // Initialize email.js with your credentials
+    emailjs.init("WxFVpReYJ1zo6UBtN");
+
+    function sendEmail(title, deadline, comment, action) {
+      // Prepare the email parameters
+      var emailParams = {
+        to_email: "bblabo.cs@gmail.com",
+        subject: `Task ${action === 'add' ? 'Added' : 'Deleted'}`,
+        body: `Action: ${action}\nTitle: ${title}\nDeadline: ${deadline}\nComment: ${comment}`
+      };
+
+      // Send the email
+      emailjs.send("DMP-BBLabo", "template_fdpmpwk", emailParams)
+        .then(function (response) {
+          console.log("Email sent:", response);
+        }, function (error) {
+          console.error("Error sending email:", error);
+        });
+    }
+<!--THIS IS THE EMAIL SEND START-->
+  
+  
   <title>名簿</title>
 
   <style>
@@ -248,6 +277,7 @@
     }, 2000);
 
     // Your existing code ...
+   
   });
 </script>
   
@@ -356,18 +386,25 @@
 
         const taskElement = createTaskElement(newTaskTitle, newTaskDeadline, newTaskComment);
         taskList.insertBefore(taskElement, taskList.firstChild);
-
+        
         saveTasksToStorage();
         document.getElementById('newTaskTitle').value = '';
         document.getElementById('newTaskDeadline').value = '';
         document.getElementById('newTaskComment').value = '';
 
+             // Send email when adding a task
+        sendEmail(newTaskTitle, newTaskDeadline, newTaskComment, 'add');
+        
         updateTotalTasks();
       }
 
       function deleteTask(listItem, title) {
         listItem.remove();
         removeFromStorage(title);
+
+             // Send email when deleting a task
+      sendEmail(title, /* additional task details */, 'delete');
+        
         updateTotalTasks();
       }
 
