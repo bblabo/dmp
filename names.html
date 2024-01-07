@@ -462,43 +462,30 @@ document.getElementById('shareButton').addEventListener('click', shareTasks);
       updateTotalTasks();
     });
 
-    function sendEmail(title, deadline, comment, action) {
-        const apiKey = "<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>";
+function sendEmail(title, deadline, comment, action) {
+    const apiKey = "<YOUR_SENDINBLUE_API_KEY>";
 
-        const emailData = {
-            to: [{ email: "<bblabo.cs@gmail.com>" }],
-            subject: `Task ${action === 'add' ? 'Added' : 'Deleted'}`,
-            text: `Action: ${action}\nTitle: ${title}\nDeadline: ${deadline}\nComment: ${comment}`
-        };
+    const emailData = {
+        to: [{ email: "bblabo.cs@gmail.com" }],
+        subject: `Task ${action === 'add' ? 'Added' : 'Deleted'}`,
+        text: `Action: ${action}\nTitle: ${title}\nDeadline: ${deadline}\nComment: ${comment}`
+    };
 
-        fetch("https://api.sendinblue.com/v3/smtp/email", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "api-key": apiKey
-            },
-            body: JSON.stringify(emailData)
+    fetch("https://api.sendinblue.com/v3/smtp/email", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "api-key": apiKey
+        },
+        body: JSON.stringify(emailData)
+    })
+        .then(response => {
+            console.log("Email sent:", response);
         })
-            .then(response => {
-                console.log("Email sent:", response);
-            })
-            .catch(error => {
-                console.error("Error sending email:", error);
-            });
-    }
-
-    function addTask() {
-        // ... (your existing addTask function) ...
-
-        sendEmail(newTaskTitle, newTaskDeadline, newTaskComment, 'add');
-    }
-
-    function deleteTask(listItem, title) {
-        listItem.remove();
-        removeFromStorage(title);
-        sendEmail(title, /* additional task details */, 'delete');
-        updateTotalTasks();
-    }
+        .catch(error => {
+            console.error("Error sending email:", error);
+        });
+}
 
     
   </script>
