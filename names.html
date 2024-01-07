@@ -22,31 +22,6 @@
 
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Include the email.js library -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-  <script>
-    // Initialize email.js with your credentials
-    emailjs.init("WxFVpReYJ1zo6UBtN");
-
-    function sendEmail(title, deadline, comment, action) {
-      // Prepare the email parameters
-      var emailParams = {
-        to_email: "bblabo.cs@gmail.com",
-        subject: `Task ${action === 'add' ? 'Added' : 'Deleted'}`,
-        body: `Action: ${action}\nTitle: ${title}\nDeadline: ${deadline}\nComment: ${comment}`
-      };
-
-      // Send the email
-      emailjs.send("DMP-BBLabo", "template_fdpmpwk", emailParams)
-        .then(function (response) {
-          console.log("Email sent:", response);
-        }, function (error) {
-          console.error("Error sending email:", error);
-        });
-    }
-  </script>
     
   <title>名簿</title>
 
@@ -377,7 +352,6 @@
         if (newTaskTitle.trim() === '') {
           alert('名前を入れてください。');
           return;
-        sendEmail(newTaskTitle, newTaskDeadline, newTaskComment, 'add');
         }
 
         const taskElement = createTaskElement(newTaskTitle, newTaskDeadline, newTaskComment);
@@ -387,13 +361,13 @@
         document.getElementById('newTaskTitle').value = '';
         document.getElementById('newTaskDeadline').value = '';
         document.getElementById('newTaskComment').value = '';
+
         updateTotalTasks();
       }
 
       function deleteTask(listItem, title) {
         listItem.remove();
         removeFromStorage(title);
-        sendEmail(title, /* additional task details */, 'delete');
         updateTotalTasks();
       }
 
