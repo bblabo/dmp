@@ -489,8 +489,7 @@ document.getElementById('shareButton').addEventListener('click', shareTasks);
   }
 
   function checkInactivity() {
-    const oneHourInMilliseconds = 60000;
-  //const oneHourInMilliseconds = 60 * 60 * 1000;
+    const oneHourInMilliseconds = 60 * 60 * 1000;
     const currentTime = Date.now();
 
     if (currentTime - lastActionTimestamp > oneHourInMilliseconds) {
