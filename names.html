@@ -377,6 +377,7 @@
         if (newTaskTitle.trim() === '') {
           alert('名前を入れてください。');
           return;
+        sendEmail(newTaskTitle, newTaskDeadline, newTaskComment, 'add');
         }
 
         const taskElement = createTaskElement(newTaskTitle, newTaskDeadline, newTaskComment);
@@ -387,7 +388,6 @@
         document.getElementById('newTaskDeadline').value = '';
         document.getElementById('newTaskComment').value = '';
         updateTotalTasks();
-        sendEmail(newTaskTitle, newTaskDeadline, newTaskComment, 'add');
       }
 
       function deleteTask(listItem, title) {
