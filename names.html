@@ -28,7 +28,7 @@
 
   <script>
     // Initialize email.js with your credentials
-    emailjs.init("user_your_emailjs_user_id");
+    emailjs.init("WxFVpReYJ1zo6UBtN");
 
     function sendEmail(title, deadline, comment, action) {
       // Prepare the email parameters
@@ -39,7 +39,7 @@
       };
 
       // Send the email
-      emailjs.send("default_service", "template_id", emailParams)
+      emailjs.send("DMP-BBLabo", "template_fdpmpwk", emailParams)
         .then(function (response) {
           console.log("Email sent:", response);
         }, function (error) {
